@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "id": 1,
+      "type": "Feature",
+      "properties": {
+        "name": "Wembley Stadium",
+        "description": "Located in London, UK, Wembley Stadium is one of the most famous football stadiums in the world that also hosts large concerts."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.2795, 51.5558]
+      }
+    },
+    {
+      "id": 2,
+      "type": "Feature",
+      "properties": {
+        "name": "O2 Arena",
+        "description": "The O2 Arena, in Greenwich, London, is a state-of-the-art arena that hosts music concerts, sports events and more."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [0.0031, 51.5025]
+      }
+    },
+    {
+      "id": 3,
+      "type": "Feature",
+      "properties": {
+        "name": "Stade de France",
+        "description": "Located in Saint-Denis, a suburb of Paris, Stade de France is the national stadium of France, hosting football and rugby matches, as well as large concerts."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.36, 48.924]
+      }
+    },
+    {
+      "id": 4,
+      "type": "Feature",
+      "properties": {
+        "name": "AccorHotels Arena",
+        "description": "The AccorHotels Arena is an indoor sports arena and concert hall located in the neighborhood of Bercy, Paris, France."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.3782, 48.8382]
+      }
+    },
+    {
+      "id": 5,
+      "type": "Feature",
+      "properties": {
+        "name": "San Siro Stadium",
+        "description": "San Siro, also known as Stadio Giuseppe Meazza, is a football stadium in Milan, Italy, that also hosts big music events."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [9.1237, 45.4784]
+      }
+    },
+    {
+      "id": 6,
+      "type": "Feature",
+      "properties": {
+        "name": "Palau Sant Jordi",
+        "description": "Palau Sant Jordi is an indoor sporting arena and multi-purpose installation located in Barcelona, Spain."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [2.1525, 41.3631]
+      }
+    },
+    {
+      "id": 7,
+      "type": "Feature",
+      "properties": {
+        "name": "Wiener Stadthalle",
+        "description": "Located in Vienna, Austria, Wiener Stadthalle is a multi-purpose indoor arena and convention center."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [16.343, 48.2082]
+      }
+    },
+    {
+      "id": 8,
+      "type": "Feature",
+      "properties": {
+        "name": "Olympiastadion",
+        "description": "Olympiastadion is a sports stadium in Berlin, Germany. It hosts football matches as well as large-scale music concerts."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [13.2395, 52.5146]
+      }
+    },
+    {
+      "id": 9,
+      "type": "Feature",
+      "properties": {
+        "name": "Royal Albert Hall",
+        "description": "The Royal Albert Hall is a concert hall on the northern edge of South Kensington, London. It is one of the UK's most treasured and distinctive buildings."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-0.1785, 51.5007]
+      }
+    },
+    {
+      "id": 10,
+      "type": "Feature",
+      "properties": {
+        "name": "Ziggo Dome",
+        "description": "The Ziggo Dome is a 17,000-seat multi-use indoor arena in Amsterdam, Netherlands. It is named after the Dutch cable TV provider Ziggo."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [4.8777, 52.343]
+      }
+    }
+  ]
+}
