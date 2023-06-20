@@ -25,6 +25,8 @@ const router = createBrowserRouter([
 
 localStorage.setItem("chakra-ui-color-mode", "dark");
 
+console.log(">>> auto build!!! ");
+
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
