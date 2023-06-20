@@ -7,6 +7,7 @@ import { VStack, theme, ChakraProvider } from "@chakra-ui/react";
 import { Venue } from "./Venue/Venue.tsx";
 import { QueryParamProvider } from "use-query-params";
 import { ReactRouter6Adapter } from "use-query-params/adapters/react-router-6";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ localStorage.setItem("chakra-ui-color-mode", "dark");
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
       <ChakraProvider theme={theme}>
         <VStack w="full" h="100vh" spacing={0}>
           <RouterProvider router={router} />
