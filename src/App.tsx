@@ -51,9 +51,56 @@ function createSources(map: MapboxMap, venues: FeatureCollection) {
     type: "geojson",
     data: undefined,
   });
+  map.addSource("congestion", {
+    type: "geojson",
+    data: undefined,
+  });
 }
 
 function createLayers(map: MapboxMap) {
+  map.addLayer({
+    id: "congestion",
+    type: "line",
+    source: "congestion", // reference the data source
+    layout: {
+      "line-join": "round",
+      "line-cap": "round",
+    },
+    paint: {
+      "line-color": [
+        "interpolate",
+        ["linear"],
+        ["get", "congestion"],
+        0,
+        "hsl(120, 100%, 50%)",
+        0.2,
+        "hsl(20, 100%, 50%)",
+        1,
+        "hsl(0, 100%, 50%)",
+      ],
+      "line-width": 4,
+      "line-opacity": 0.5,
+    },
+  });
+
+  map.addLayer({
+    id: "parking",
+    type: "fill",
+    source: "parking", // reference the data source
+    layout: {},
+    paint: {
+      "fill-color": [
+        "interpolate",
+        ["linear"],
+        ["/", ["get", "occupancy"], ["get", "capacity"]],
+        0,
+        "hsl(120, 100%, 50%)",
+        1,
+        "hsl(0, 100%, 50%)",
+      ],
+    },
+  });
+
   map.addLayer({
     id: "venues",
     type: "symbol",
@@ -70,23 +117,6 @@ function createLayers(map: MapboxMap) {
     paint: {
       "text-color": "#ffff00",
       "text-opacity": 0,
-    },
-  });
-  map.addLayer({
-    id: "parking",
-    type: "fill",
-    source: "parking", // reference the data source
-    layout: {},
-    paint: {
-      "fill-color": [
-        "interpolate",
-        ["linear"],
-        ["/", ["get", "occupancy"], ["get", "capacity"]],
-        0,
-        "hsl(120, 100%, 50%)",
-        1,
-        "hsl(0, 100%, 50%)",
-      ],
     },
   });
 }
@@ -177,18 +207,31 @@ function App() {
       })
         .map(([k, v]) => `${k}=${v}`)
         .join("&");
-      const url = ["/api/parking-lots-occupancy", query].join("?");
-      const updateSource = () => {
+      const updateParkingSource = () => {
         const source = map.getSource("parking") as GeoJSONSource;
         if (source) {
+          const url = ["/api/parking-lots-occupancy", query].join("?");
           source.setData(url);
-          map.off("idle", updateSource);
+          map.off("idle", updateParkingSource);
           return true;
         }
         return false;
       };
-      if (!updateSource()) {
-        map.on("idle", updateSource);
+      const updateTrafficSource = () => {
+        const source = map.getSource("congestion") as GeoJSONSource;
+        if (source) {
+          const url = ["/api/congestion", query].join("?");
+          source.setData(url);
+          map.off("idle", updateTrafficSource);
+          return true;
+        }
+        return false;
+      };
+      if (!updateParkingSource()) {
+        map.on("idle", updateParkingSource);
+      }
+      if (!updateTrafficSource()) {
+        map.on("idle", updateTrafficSource);
       }
     }
   }, [map, eventTime, offset, occupancy, venueId, eventType]);
