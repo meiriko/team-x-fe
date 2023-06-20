@@ -98,6 +98,17 @@ function createLayers(map: MapboxMap) {
         1,
         "hsl(0, 100%, 50%)",
       ],
+      "fill-opacity": 0.5,
+    },
+  });
+  map.addLayer({
+    id: "parking-outline",
+    type: "line",
+    source: "parking",
+    layout: {},
+    paint: {
+      "line-color": "#ffffff",
+      "line-width": 2,
     },
   });
 
