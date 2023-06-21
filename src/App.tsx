@@ -98,7 +98,7 @@ function createLayers(map: MapboxMap) {
         1,
         "hsl(0, 100%, 50%)",
       ],
-      "fill-opacity": 0.5,
+      // "fill-opacity": 0.7,
     },
   });
   map.addLayer({
