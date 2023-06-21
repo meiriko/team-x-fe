@@ -79,7 +79,7 @@ function createLayers(map: MapboxMap) {
         "hsl(0, 100%, 50%)",
       ],
       "line-width": 4,
-      "line-opacity": 0.5,
+      "line-opacity": 0.7,
     },
   });
 
@@ -98,9 +98,29 @@ function createLayers(map: MapboxMap) {
         1,
         "hsl(0, 100%, 50%)",
       ],
-      // "fill-opacity": 0.7,
     },
   });
+  map.addLayer({
+    id: "parking-text",
+    type: "symbol",
+    source: "parking",
+    layout: {
+      "icon-image": "parking",
+      "icon-allow-overlap": true,
+      "icon-size": 1,
+      "text-field": "{name}",
+      "text-anchor": "left",
+      "text-allow-overlap": true,
+      "text-offset": [0, -1.5],
+    },
+    paint: {
+      "text-color": "#ffff00",
+      "text-halo-color": "#0000ff",
+      "text-halo-width": 150,
+      "text-halo-blur": 10,
+    },
+  });
+
   map.addLayer({
     id: "parking-outline",
     type: "line",
