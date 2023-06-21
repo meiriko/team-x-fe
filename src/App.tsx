@@ -122,6 +122,61 @@ function createLayers(map: MapboxMap) {
   });
 
   map.addLayer({
+    id: "parking-outline-big",
+    type: "line",
+    source: "parking",
+    layout: {},
+    paint: {
+      "line-color": [
+        "interpolate",
+        ["linear"],
+        ["/", ["get", "occupancy"], ["get", "capacity"]],
+        0,
+        "hsl(120, 100%, 50%)",
+        1,
+        "hsl(0, 100%, 50%)",
+      ],
+      // "line-color": "#ff0000",
+      // "line-width": 20,
+      "line-width": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        // zoom is 5 (or less) -> circle radius will be 1px
+        12,
+        2,
+        // zoom is 10 (or greater) -> circle radius will be 5px
+        18,
+        30,
+      ],
+      // "line-offset": -4,
+      "line-offset": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        // zoom is 5 (or less) -> circle radius will be 1px
+        12,
+        0,
+        // zoom is 10 (or greater) -> circle radius will be 5px
+        18,
+        -4,
+      ],
+      // "line-blur": 10,
+      "line-blur": [
+        "interpolate",
+        ["linear"],
+        ["zoom"],
+        // zoom is 5 (or less) -> circle radius will be 1px
+        10,
+        2,
+        // zoom is 10 (or greater) -> circle radius will be 5px
+        18,
+        15,
+      ],
+    },
+  });
+
+  map.addLayer({
     id: "parking-outline",
     type: "line",
     source: "parking",
